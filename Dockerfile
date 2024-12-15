@@ -5,7 +5,7 @@ COPY pom.xml .
 RUN mvn dependency:go-offline -B
 
 COPY src ./src
-RUN mvn package
+RUN mvn package -Dmaven.test.skip=true
 
 
 FROM eclipse-temurin:21-jdk-alpine

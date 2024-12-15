@@ -1,7 +1,6 @@
 services:
   cmp-pagamentos:
     build: .
-    image: entityblackhawk/cmp-pagamentos:latest
     environment:
       MONGODB_HOST: db-pagamentos:27017
     networks:
