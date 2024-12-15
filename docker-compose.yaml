@@ -1,0 +1,28 @@
+services:
+  cmp-pagamentos:
+    build: .
+    image: entityblackhawk/cmp-pagamentos:latest
+    environment:
+      MONGODB_HOST: db-pagamentos:27017
+    networks:
+        - network-pagamentos
+    depends_on:
+        - db-pagamentos
+
+  db-pagamentos:
+    image: mongo:latest
+    environment:
+        MONGO_INITDB_DATABASE: pagamentos
+
+    volumes:
+        - ./data:/data/db
+
+    networks:
+        - network-pagamentos
+
+    ports:
+      - "27017:27017"
+
+networks:
+    network-pagamentos:
+        driver: bridge
