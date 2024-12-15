@@ -1,23 +1,20 @@
-package com.example.componentepagamentos.model;
+package com.example.componentepagamentos.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
-public class Payment {
+public class PaymentDto {
 
-    @Id
     private String id;
-    private String orderId;
+    private UUID orderId;
     private String cardNumber;
+    private Integer cvv;
     private String expirationDate;
 
 }
