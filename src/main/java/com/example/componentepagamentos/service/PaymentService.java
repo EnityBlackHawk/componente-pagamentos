@@ -21,6 +21,23 @@ public class PaymentService {
         this.amqpTemplate = amqpTemplate;
     }
 
+    public PaymentDto getById(String id) {
+        Payment payment = paymentRepository.findById(id).orElse(null);
+        if (payment == null) {
+            return null;
+        }
+        ModelMapper mm = new ModelMapper();
+        return mm.map(payment, PaymentDto.class);
+    }
+
+    public PaymentDto getByOrderId(String orderId) {
+        Payment payment = paymentRepository.findByOrderId(orderId).orElse(null);
+        if (payment == null) {
+            return null;
+        }
+        ModelMapper mm = new ModelMapper();
+        return mm.map(payment, PaymentDto.class);
+    }
 
     public Payment createPayment(PaymentDto dto) {
         ModelMapper mm = new ModelMapper();

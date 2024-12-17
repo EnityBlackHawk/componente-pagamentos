@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -12,9 +12,11 @@ import java.util.UUID;
 public class PaymentDto {
 
     private String id;
-    private UUID orderId;
+    private String orderId;
     private String cardNumber;
     private Integer cvv;
     private String expirationDate;
+    private Double value;
+    private Date paymentDate = new Date();
 
 }
